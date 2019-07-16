@@ -4,6 +4,7 @@ import com.tw.apistackbase.modle.Employee;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/employees")
@@ -24,6 +25,12 @@ public class EmployeesController {
         });
         return employees;
     }
+
+    @PutMapping
+    public List<Employee> putEmployee(@RequestBody Employee employee){
+        return employees.stream().map(item->item.getId()==employee.getId()?employee:item).collect(Collectors.toList());
+    }
+
 
 
 
