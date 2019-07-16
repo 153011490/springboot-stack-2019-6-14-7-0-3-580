@@ -31,7 +31,10 @@ public class EmployeesController {
         return employees.stream().map(item->item.getId()==employee.getId()?employee:item).collect(Collectors.toList());
     }
 
-
+    @GetMapping
+    public List<Employee> getAllEmployee(){
+        return employees;
+    }
 
 
 
