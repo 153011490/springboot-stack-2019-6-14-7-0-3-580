@@ -17,5 +17,15 @@ public class EmployeesController {
         return employees;
     }
 
+    @DeleteMapping
+    public List<Employee> deleteEmployee(@RequestParam int id){
+        employees.forEach(employee -> {
+            if(employee.getId()==id)employees.remove(employee);
+        });
+        return employees;
+    }
+
+
+
 
 }
